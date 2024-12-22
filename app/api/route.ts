@@ -50,9 +50,12 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  console.error(12345)
   const response = await fetch("https://api.quotable.io/random", {
     cache: "no-cache",
   });
+  console.error(response)
+  
 
   const data = await response.json();
 

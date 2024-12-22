@@ -10,15 +10,25 @@ export const AddQuote = () => {
 
   const addQuote = async () => {
     try {
+      console.log("addQuote");
       const response = await fetch(`${HOST}/api`, {
         method: "POST",
       });
+      console.log(1);
+      console.log(await response)
       const data = await response.json();
+      
+            
+      console.log(2);
       const toastId = toast.success(`New quote added - "${data.quote}"`);
+      console.log(3);
       await delay(2000);
+      console.log(4);
       toast.remove(toastId);
+      console.log(5);
       router.refresh();
     } catch (error) {
+      console.log(error);
       toast.error("Something went wrong");
     }
   };
